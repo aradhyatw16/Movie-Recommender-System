@@ -5,7 +5,7 @@ import requests
 
 
 def fetch_poster_and_rating(movie_id):
-    response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=a3b36323b05f539a4050bbe05d66d460&language=en-US')
+    response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key={st.secrets["API_KEY"]}&language=en-US')
     data = response.json()
     poster_path = data.get('poster_path')
     rating = round(data.get('vote_average', 0), 1)
